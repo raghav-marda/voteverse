@@ -1,0 +1,585 @@
+/* ══════════════════════════════════════════════════
+   SIMULATION PAGE — Election Officer Game Styles
+   ══════════════════════════════════════════════════ */
+
+/* ── Page Shell ─────────────────────────────────── */
+
+.sim-page {
+  min-height: calc(100vh - 64px);
+  background: linear-gradient(170deg, #080c18 0%, #0d1020 40%, #0a0e1a 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2.5rem 1.5rem 4rem;
+}
+
+/* ── Score Bar ──────────────────────────────────── */
+
+.score-bar {
+  position: sticky;
+  top: 64px;
+  z-index: 20;
+  width: 100%;
+  max-width: 640px;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1.25rem;
+  background: rgba(14, 16, 28, 0.85);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 1rem;
+  margin-bottom: 2rem;
+}
+
+.score-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #6a6a82;
+  white-space: nowrap;
+}
+
+.score-track {
+  flex: 1;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.score-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #7c5cfc, #38dc8c);
+  transition: width 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.score-value {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #e0e0f0;
+  min-width: 2rem;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ── Phase Header ───────────────────────────────── */
+
+.phase-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.9rem;
+  border-radius: 999px;
+  background: rgba(124, 92, 252, 0.12);
+  border: 1px solid rgba(124, 92, 252, 0.25);
+  color: #9b82fc;
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 0.75rem;
+}
+
+.phase-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #f0f0f8;
+  margin-bottom: 0.35rem;
+  text-align: center;
+}
+
+.phase-desc {
+  font-size: 0.85rem;
+  color: #6a6a82;
+  text-align: center;
+  margin-bottom: 2rem;
+  max-width: 420px;
+}
+
+/* ── Game Card ──────────────────────────────────── */
+
+.game-card {
+  width: 100%;
+  max-width: 520px;
+  background: rgba(18, 20, 34, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 1rem;
+  padding: 1.75rem;
+  margin-bottom: 1rem;
+  animation: card-in 0.45s cubic-bezier(0.19, 1, 0.22, 1) both;
+}
+
+@keyframes card-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ── Booth Checklist ────────────────────────────── */
+
+.checklist {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.checklist-item {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.9rem 1rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 0.75rem;
+  cursor: pointer;
+  transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+  user-select: none;
+}
+
+.checklist-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.checklist-item.checked {
+  background: rgba(56, 220, 140, 0.06);
+  border-color: rgba(56, 220, 140, 0.2);
+}
+
+.check-box {
+  width: 22px;
+  height: 22px;
+  border-radius: 6px;
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.3s ease;
+  font-size: 0.7rem;
+}
+
+.checklist-item.checked .check-box {
+  background: #38dc8c;
+  border-color: #38dc8c;
+}
+
+.check-icon-label {
+  font-size: 1.1rem;
+}
+
+.check-text {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #c0c0d0;
+}
+
+.checklist-item.checked .check-text {
+  color: #38dc8c;
+}
+
+/* ── Voter Card ─────────────────────────────────── */
+
+.voter-card {
+  text-align: center;
+}
+
+.voter-avatar {
+  font-size: 3.5rem;
+  margin-bottom: 0.5rem;
+  animation: icon-bob 3s ease-in-out infinite;
+}
+
+@keyframes icon-bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+.voter-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #f0f0f8;
+  margin-bottom: 0.15rem;
+}
+
+.voter-age {
+  font-size: 0.75rem;
+  color: #6a6a82;
+  margin-bottom: 0.85rem;
+}
+
+.voter-detail {
+  font-size: 0.82rem;
+  color: #8888a0;
+  line-height: 1.5;
+  padding: 0.85rem 1rem;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 0.6rem;
+  margin-bottom: 1.25rem;
+}
+
+.voter-status-badge {
+  display: inline-block;
+  padding: 0.2rem 0.65rem;
+  border-radius: 999px;
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 1rem;
+}
+
+.voter-status-badge.valid { background: rgba(56, 220, 140, 0.12); color: #38dc8c; }
+.voter-status-badge.fake { background: rgba(220, 56, 56, 0.12); color: #dc4838; }
+.voter-status-badge.duplicate { background: rgba(220, 156, 56, 0.12); color: #dcb038; }
+.voter-status-badge.underage { background: rgba(156, 56, 220, 0.12); color: #9c38dc; }
+
+/* ── Decision Buttons ───────────────────────────── */
+
+.decision-row {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.decision-btn {
+  padding: 0.6rem 1.5rem;
+  border-radius: 0.6rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.04);
+  color: #c0c0d0;
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  font-family: inherit;
+}
+
+.decision-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.decision-btn.allow {
+  border-color: rgba(56, 220, 140, 0.3);
+  color: #38dc8c;
+}
+.decision-btn.allow:hover {
+  background: rgba(56, 220, 140, 0.1);
+}
+
+.decision-btn.reject {
+  border-color: rgba(220, 72, 56, 0.3);
+  color: #dc5838;
+}
+.decision-btn.reject:hover {
+  background: rgba(220, 72, 56, 0.1);
+}
+
+/* ── Feedback Flash ─────────────────────────────── */
+
+.feedback-flash {
+  text-align: center;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  animation: flash-in 0.35s cubic-bezier(0.19, 1, 0.22, 1);
+  margin-top: 1rem;
+}
+
+.feedback-flash.correct {
+  background: rgba(56, 220, 140, 0.08);
+  border: 1px solid rgba(56, 220, 140, 0.2);
+  color: #38dc8c;
+}
+
+.feedback-flash.wrong {
+  background: rgba(220, 56, 56, 0.08);
+  border: 1px solid rgba(220, 56, 56, 0.2);
+  color: #dc4838;
+}
+
+@keyframes flash-in {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* ── Situation Card ─────────────────────────────── */
+
+.situation-icon {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 0.6rem;
+}
+
+.situation-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #f0f0f8;
+  text-align: center;
+  margin-bottom: 0.4rem;
+}
+
+.situation-desc {
+  font-size: 0.82rem;
+  color: #8888a0;
+  text-align: center;
+  line-height: 1.55;
+  margin-bottom: 1.5rem;
+}
+
+.option-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.option-btn {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border-radius: 0.6rem;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(255, 255, 255, 0.03);
+  color: #c0c0d0;
+  font-size: 0.82rem;
+  font-weight: 500;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  font-family: inherit;
+}
+
+.option-btn:hover {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.15);
+  transform: translateX(4px);
+}
+
+/* ── Continue Button ────────────────────────────── */
+
+.continue-btn {
+  margin-top: 1.5rem;
+  padding: 0.65rem 2rem;
+  border-radius: 0.6rem;
+  border: none;
+  background: linear-gradient(135deg, #7c5cfc, #6344e0);
+  color: white;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+  font-family: inherit;
+}
+
+.continue-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(124, 92, 252, 0.3);
+}
+
+.continue-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* ── Start Screen ───────────────────────────────── */
+
+.start-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: calc(100vh - 64px - 5rem);
+  animation: card-in 0.5s ease both;
+}
+
+.start-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  animation: icon-bob 3s ease-in-out infinite;
+}
+
+.start-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #f0f0f8;
+  margin-bottom: 0.4rem;
+}
+
+.start-subtitle {
+  font-size: 0.9rem;
+  color: #6a6a82;
+  margin-bottom: 2rem;
+  max-width: 360px;
+  line-height: 1.5;
+}
+
+.start-btn {
+  padding: 0.75rem 2.5rem;
+  border-radius: 0.75rem;
+  border: none;
+  background: linear-gradient(135deg, #7c5cfc, #6344e0);
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.35s cubic-bezier(0.25, 0.8, 0.25, 1);
+  font-family: inherit;
+}
+
+.start-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(124, 92, 252, 0.35);
+}
+
+/* ── Result Screen ──────────────────────────────── */
+
+.result-screen {
+  width: 100%;
+  max-width: 560px;
+  text-align: center;
+  animation: card-in 0.5s ease both;
+}
+
+.result-verdict {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 0.35rem;
+}
+
+.result-score-big {
+  font-size: 3rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #7c5cfc, #38dc8c);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.25rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.result-max {
+  font-size: 0.8rem;
+  color: #6a6a82;
+  margin-bottom: 2rem;
+}
+
+.result-breakdown {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-bottom: 2rem;
+}
+
+.result-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 0.6rem;
+}
+
+.result-row-label {
+  font-size: 0.82rem;
+  color: #8888a0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.result-row-value {
+  font-size: 0.82rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.result-row-value.positive { color: #38dc8c; }
+.result-row-value.negative { color: #dc4838; }
+.result-row-value.neutral { color: #8888a0; }
+
+.restart-btn {
+  padding: 0.65rem 2rem;
+  border-radius: 0.6rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+  color: #c0c0d0;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+.restart-btn:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* ── Step Progress ──────────────────────────────── */
+
+.step-progress {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.step-dot {
+  width: 32px;
+  height: 4px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  transition: all 0.4s ease;
+}
+
+.step-dot.done {
+  background: #38dc8c;
+}
+
+.step-dot.current {
+  background: #7c5cfc;
+  box-shadow: 0 0 8px rgba(124, 92, 252, 0.5);
+}
+
+/* ── Counter Badge ──────────────────────────────── */
+
+.counter-badge {
+  font-size: 0.7rem;
+  color: #6a6a82;
+  margin-bottom: 1.25rem;
+  text-align: center;
+}
+
+/* ── Responsive ─────────────────────────────────── */
+
+@media (max-width: 640px) {
+  .sim-page {
+    padding: 1.5rem 1rem 3rem;
+  }
+
+  .game-card {
+    padding: 1.25rem;
+  }
+
+  .decision-row {
+    flex-direction: column;
+  }
+
+  .decision-btn {
+    width: 100%;
+  }
+}
