@@ -152,16 +152,22 @@ npm run build
 
 ---
 
-# 📸 Screenshots
+## 📸 Screenshots
 
-Add screenshots here:
+### Home Screen
+![Home](screenshots/home.png)
 
-* Home Screen
-* Timeline Mode
-* Simulation Mode
-* AI Assistant
-* Mobile View
+### Timeline Mode
+![Timeline](screenshots/timeline.png)
 
+### Simulation
+![Simulation](screenshots/simulation.png)
+
+### AI Assistant
+![Assistant](screenshots/assistant.png)
+
+### Mobile View
+![Mobile](screenshots/mobile.png)
 ---
 
 # 🏆 Highlights
